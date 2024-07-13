@@ -1,0 +1,28 @@
+-- store.db
+
+-- Create tables
+CREATE TABLE products (
+  id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  price REAL NOT NULL
+);
+
+CREATE TABLE orders (
+  id INTEGER PRIMARY KEY,
+  customer_name TEXT NOT NULL,
+  customer_email TEXT NOT NULL,
+  product_id INTEGER,
+  FOREIGN KEY (product_id) REFERENCES products (id)
+);
+
+-- Insert some sample data
+INSERT INTO products (title, description, price) VALUES
+  ('Product 1', 'This is product 1', 19.99),
+  ('Product 2', 'This is product 2', 9.99),
+  ('Product 3', 'This is product 3', 29.99);
+
+INSERT INTO orders (customer_name, customer_email, product_id) VALUES
+  ('John Doe', 'johndoe@example.com', 1),
+  ('Jane Doe', 'janedoe@example.com', 2),
+  ('Bob Smith', 'bobsmith@example.com', 3);

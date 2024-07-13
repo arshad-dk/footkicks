@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
+    <form action="{{ url_for('cart') }}" method="post">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <input type="submit" value="Add to Cart">
+    </form>
+</body>
+</html>

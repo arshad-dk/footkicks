@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>My Cart</h1>
+    <ul>
+        {% for order in orders %}
+            <li>
+                {{ order.product.title }} ({{ order.product.price }})
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

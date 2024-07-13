@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My E-commerce Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>My E-commerce Store</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.title }}</a>
+                <p>{{ product.description }}</p>
+                <p>Price: {{ product.price }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
